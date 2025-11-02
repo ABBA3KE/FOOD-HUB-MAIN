@@ -1,0 +1,25 @@
+{
+  "name": "foodhub",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "prepare": "husky install",
+    "postinstall": "husky install"
+  },
+  "devDependencies": {
+    "husky": "^8.0.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "commitlint": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}

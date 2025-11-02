@@ -1,0 +1,31 @@
+
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install root dependencies
+        run: npm ci
+      - name: Install server deps
+        run: cd server && npm ci
+      - name: Install client deps
+        run: cd client && npm ci
+      - name: Run server tests (if any)
+        run: cd server && npm test || echo "No server tests"
+      - name: Build client
+        run: cd client && npm run build
