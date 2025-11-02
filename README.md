@@ -29,4 +29,4 @@ FoodHub is a full-stack web app for ordering food, making reservations, and mana
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
